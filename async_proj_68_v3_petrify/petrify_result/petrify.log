@@ -1,0 +1,67 @@
+Number of added state signals : 1
+
+--------------------------
+| Input -> Input Delays: |
+--------------------------
+Average delay =  2.00 events
+Worst-case delay =  2.00 events
+Input events with worst-case delay: Req_in+ Ack_in- Req_in- Ack_in+
+  > Input events preceding Req_in+: Req_in-(2) Ack_in+(2)
+  > Input events preceding Ack_in-: Req_in-(2) Ack_in+(2)
+  > Input events preceding Req_in-: Req_in+(2) Ack_in-(2)
+  > Input events preceding Ack_in+: Req_in+(2) Ack_in-(2)
+
+============================
+# Gates for signal Req_out #
+============================
+
+Req_out = csc0'
+  > triggers(SET):     csc0- -> Req_out+
+  > triggers(RESET):   csc0+ -> Req_out-
+  > 2 transistors (1 n, 1 p) + 0 inverters
+  > Estimated delay: rising = 15.21, falling = 9.12
+  > Speed independent (no timing assumptions)
+
+============================
+# Gates for signal Ack_out #
+============================
+
+Ack_out = csc0'
+  > triggers(SET):     csc0- -> Ack_out+
+  > triggers(RESET):   csc0+ -> Ack_out-
+  > 2 transistors (1 n, 1 p) + 0 inverters
+  > Estimated delay: rising = 15.21, falling = 9.12
+  > Speed independent (no timing assumptions)
+
+=========================
+# Gates for signal csc0 #
+=========================
+
+csc0 = csc0 (Req_in' + Ack_in) + Ack_in Req_in'
+  > triggers(SET):     (Req_in-,Ack_in+) -> csc0+
+  > triggers(RESET):   (Req_in+,Ack_in-) -> csc0-
+  > 10 transistors (5 n, 5 p) + 2 inverters
+  > Estimated delay: rising = 38.50, falling = 27.12
+  > Speed independent (no timing assumptions)
+
+====================
+| Selected circuit |
+====================
+
+Req_out = csc0'
+  > triggers(SET):     csc0- -> Req_out+
+  > triggers(RESET):   csc0+ -> Req_out-
+  > 2 transistors (1 n, 1 p) + 0 inverters
+  > Estimated delay: rising = 15.21, falling = 9.12
+
+Ack_out = csc0'
+  > triggers(SET):     csc0- -> Ack_out+
+  > triggers(RESET):   csc0+ -> Ack_out-
+  > 2 transistors (1 n, 1 p) + 0 inverters
+  > Estimated delay: rising = 15.21, falling = 9.12
+
+csc0 = csc0 (Req_in' + Ack_in) + Ack_in Req_in'
+  > triggers(SET):     (Req_in-,Ack_in+) -> csc0+
+  > triggers(RESET):   (Req_in+,Ack_in-) -> csc0-
+  > 10 transistors (5 n, 5 p) + 2 inverters
+  > Estimated delay: rising = 38.50, falling = 27.12
